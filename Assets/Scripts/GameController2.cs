@@ -225,7 +225,7 @@ public class GameController2 : MonoBehaviour
 
     private void UpdateHistoryText()
     {
-        historyText.text = string.Join(">", commandHistory);
+        historyText.text = string.Join("\n", commandHistory);
     }
 
     public void limparConsole(){

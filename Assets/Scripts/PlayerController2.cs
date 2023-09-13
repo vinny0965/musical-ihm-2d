@@ -13,6 +13,11 @@ public class PlayerController2 : MonoBehaviour
     public Animator playerAnimator; // Referência ao componente Animator
     private PlayerLife1 playerLife;
 
+    private AudioSource audioSource;
+
+    public AudioClip sound1;
+    public AudioClip sound2;
+
 
     private void Start()
     {
@@ -20,7 +25,22 @@ public class PlayerController2 : MonoBehaviour
         playerAnimator = GetComponent<Animator>(); // Obtendo o componente Animator
         initialPosition = transform.position;
         playerLife = GetComponent<PlayerLife1>();
+        audioSource = GetComponent<AudioSource>();
 
+
+    }
+
+    private void TocarSom(AudioClip som)
+    {
+        if (audioSource != null)
+        {
+            audioSource.clip = som;
+            audioSource.Play();
+        }
+    }
+    public void TocarSomDePerda()
+    {
+        TocarSom(sound2);
     }
 
     public void MoveLeft()
@@ -178,6 +198,7 @@ public class PlayerController2 : MonoBehaviour
         if(collider.gameObject.tag == "NotaSol")
         {
             Destroy(collider.gameObject);
+            TocarSom(sound1);
             gcPlayer2.SetNotasSol(1);
 
 
@@ -185,6 +206,7 @@ public class PlayerController2 : MonoBehaviour
         if(collider.gameObject.tag == "NotaLa")
         {
             Destroy(collider.gameObject);
+            TocarSom(sound1);
             gcPlayer2.SetNotasLa(1);
 
 
@@ -192,6 +214,7 @@ public class PlayerController2 : MonoBehaviour
         if(collider.gameObject.tag == "NotaSi")
         {
             Destroy(collider.gameObject);
+            TocarSom(sound1);
             gcPlayer2.SetNotasSi(1);
 
 
@@ -199,6 +222,7 @@ public class PlayerController2 : MonoBehaviour
         if(collider.gameObject.tag == "NotaDo")
         {
             Destroy(collider.gameObject);
+            TocarSom(sound1);
             gcPlayer2.SetNotasDo(1);
 
 
@@ -206,7 +230,10 @@ public class PlayerController2 : MonoBehaviour
 
         if(collider.gameObject.tag == "inimigo")
         {
+            TocarSom(sound2);
+            TocarSom(sound1);
             playerLife.LoseLife();
+            
 
 
 

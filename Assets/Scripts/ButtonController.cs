@@ -20,7 +20,7 @@ public class ButtonController : MonoBehaviour
     {
         playerController.MoveLeft();
         playerController.setMoveLeft();
-        gameController.AddCommandToHistory("andar.esquerda()");
+        gameController.AddCommandToHistory(" - andar.esquerda()");
 
 
     }
@@ -29,7 +29,7 @@ public class ButtonController : MonoBehaviour
     {
         playerController.MoveRight();
         playerController.setMoveRigth();
-        gameController.AddCommandToHistory("andar.direita()");
+        gameController.AddCommandToHistory(" - andar.direita()");
 
     }
     public void OnPlayButtonPressed()
@@ -41,7 +41,7 @@ public class ButtonController : MonoBehaviour
     {
         playerController.MoveUp();
         playerController.setMoveUp();
-        gameController.AddCommandToHistory("andar.cima()");
+        gameController.AddCommandToHistory(" - andar.cima()");
 
 
     }
@@ -54,7 +54,7 @@ public class ButtonController : MonoBehaviour
     {
         playerController.MoveDown();
         playerController.setMoveDown();
-        gameController.AddCommandToHistory("andar.baixo()");
+        gameController.AddCommandToHistory(" - andar.baixo()");
 
     }
 
